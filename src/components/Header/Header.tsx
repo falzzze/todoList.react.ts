@@ -1,15 +1,16 @@
 import React from "react";
+
+import { useTodo } from "../../utils";
+
 import styles from "./Header.module.css";
 
-interface HeaderProps {
-  todoCount: number;
-}
+export const Header: React.FC = () => {
+  const { todos } = useTodo();
 
-export const Header: React.FC<HeaderProps> = ({ todoCount }) => {
   return (
     <div className={styles.header_container}>
       <div className={styles.header_title}>
-        Todo list <b>{todoCount}</b> task(s)
+        Todo list <b>{todos.length}</b> task(s)
       </div>
     </div>
   );
